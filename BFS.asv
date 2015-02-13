@@ -1,5 +1,5 @@
 %node <-- a node with STATE = problem.INITIAL-STATE, PATH-COST =0
-initial= [1 2 3 4 5 6 7 0 8];
+initial= [3 1 2 0 4 5 6 7 8];
 goal_state= [1 2 3 4 5 6 7 8 0];
 path_cost= 0;
 tic
@@ -25,7 +25,7 @@ while ~isempty(frontier) && ~stop
     explored = [explored; state]
     %for each action in problem .ACTIONS(node. STATE) do
     possibleActions= findActionsFromState(state);
-    for j=1:length(possibleActions);
+    for j=1:length(;
         %child <— CHILD -Node(problem, node , action)
         child= findStateFromAction(state, possibleActions(j));
 

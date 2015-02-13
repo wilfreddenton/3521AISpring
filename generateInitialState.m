@@ -11,14 +11,13 @@ function [initialState] = generateInitialState(depth)
         potentialStates = [];
         for i = 1:numel(actions)
             state = findStateFromAction(initialState, actions(i));
-            if ~ismember(state, explored)
+            if ~ismember(state, explored, 'rows')
                 potentialStates = [potentialStates; state];
             end
         end
-        randomIndex = randperm(numel(potentialStates), 1);
-        initialState = potentialStates(randomIndex);
+        length = size(potentialStates,1);
+        randomIndex = randperm(length, 1);
+        initialState = potentialStates(randomIndex,:);
         currentDepth = currentDepth + 1;
     end
-    disp(explored)
-    disp(initialState)
 end

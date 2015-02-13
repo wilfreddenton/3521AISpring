@@ -1,5 +1,5 @@
 %node <-- a node with STATE = problem.INITIAL-STATE, PATH-COST =0
-initial= [1 2 3 4 5 6 7 0 8];
+initial= [2 6 3 1 0 7 5 8 4];
 goal_state= [1 2 3 4 5 6 7 8 0];
 path_cost= 0;
 tic
@@ -30,22 +30,9 @@ while ~isempty(frontier) && ~stop
         child= findStateFromAction(state, possibleActions(j));
 
         %if child.STATE is not in explored or frontier then
-        inFrontier=0;
-        inExplored=0;
-
-        for i= 1:size(frontier,1)
-            if(frontier(i,:)== child)
-                inFrontier=1;
-            end
-        end  
-
-        for i= 1:size(explored,1)
-            if(explored(i,:)== child)
-                inExplored=1;
-            end
-        end 
+ 
         %if problem GOAL- TEST(child.STATE) then return SOLUTION( child)
-        if(inExplored==0 && inFrontier==0)
+        if ~ismember(child,frontier, 'rows') && ~ismember(child,explored, 'rows')
             if child == goal_state
                 fprintf('Solution Found')
                 child

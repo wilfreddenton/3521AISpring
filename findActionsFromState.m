@@ -1,4 +1,4 @@
-function [actions]= findActionsFromState(state);
+function [actions]= findActionsFromState(state)
 
     %Possible Actions defined:
     %1= UP

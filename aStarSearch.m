@@ -23,7 +23,8 @@ function [result] = aStarSearch(initialState, goalState)
         end
         frontier(optimalStateIndex,:) = [];
         seen = [seen; state];
-        possibleActions= findActionsFromState(state);
+        
+        possibleActions = findActionsFromState(state);
         for i = 1:length(possibleActions)
             %child <— CHILD -Node(problem, node , action)
             child = findStateFromAction(state, possibleActions(i));

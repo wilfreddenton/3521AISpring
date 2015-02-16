@@ -59,7 +59,8 @@ aStarTimes = [];
 for i = 1:length(randomStates)
     tic
     result = aStarSearch(randomStates(i,:), goalState);
-    aStarTimes = [aStarTimes;toc];
+    row = [result toc];
+    aStarTimes = [aStarTimes;row];
 end
 aStarTimes
 

@@ -22,7 +22,7 @@ function[result]= breadthFirstSearch(initial_state, goalState)
         seen = [seen; state];
         %for each action in problem .ACTIONS(node. STATE) do
         possibleActions= findActionsFromState(state);
-        for i=1:length(possibleActions);
+        for i=1:numel(possibleActions);
             %child <— CHILD -Node(problem, node , action)
             child= findStateFromAction(state, possibleActions(i));
 

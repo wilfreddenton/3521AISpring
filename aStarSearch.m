@@ -25,7 +25,7 @@ function [result] = aStarSearch(initialState, goalState)
         seen = [seen; state];
         
         possibleActions = findActionsFromState(state);
-        for i = 1:length(possibleActions)
+        for i = 1:numel(possibleActions)
             %child <— CHILD -Node(problem, node , action)
             child = findStateFromAction(state, possibleActions(i));
 

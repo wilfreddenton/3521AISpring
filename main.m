@@ -23,14 +23,14 @@ end
 % Loop for all the generated initial states
 %   run through BFS
 
-% BFSTimes = [];
-% for i = 1:length(randomStates)
-%     tic
-%     result = breadthFirstSearch(randomStates(i,:), goalState);
-%     row = [result toc];
-%     BFSTimes = [BFSTimes;row];
-% end
-% BFSTimes
+BFSTimes = [];
+for i = 1:length(randomStates)
+    tic
+    result = breadthFirstSearch(randomStates(i,:), goalState);
+    row = [result toc];
+    BFSTimes = [BFSTimes;row];
+end
+BFSTimes
 
 % Depth First Search
 

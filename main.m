@@ -44,14 +44,14 @@ BFSTimes
 
 % Iterative Depth Limited Search
 
-% IDLSTimes = zeros(0,2);
-% for i = 1:length(randomStates)
-%     tic
-%     result = iterativeDepthLimitedSearch(randomStates(i,:), 100, zeros(0,9), goalState);
-%     row = [result toc];
-%     IDLSTimes = [IDLSTimes;row];
-% end
-% IDLSTimes
+IDLSTimes = zeros(0,2);
+for i = 1:length(randomStates)
+    tic
+    result = iterativeDepthLimitedSearch(randomStates(i,:), 100, zeros(0,9), goalState);
+    row = [result toc];
+    IDLSTimes = [IDLSTimes;row];
+end
+IDLSTimes
 
 % A* Search with Manhattan Distance Heuristic
 

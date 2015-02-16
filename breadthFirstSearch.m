@@ -1,14 +1,14 @@
+function[result]= breadthFirstSearch(initial_state, goalState)
 %node <-- a node with STATE = problem.INITIAL-STATE, PATH-COST =0
-initial= [2 6 3 1 0 7 5 8 4];
-goal_state= [1 2 3 4 5 6 7 8 0];
-path_cost= 0;
-tic
+%goal_state= [1 2 3 4 5 6 7 8 0];
+result=0;
 %if problem.GOAL-TEST( node. STATE) then return SOLUTION(node)
-if initial == goal_state
-   fprintf('solution found');
+if initial_state == goalState
+  result=1;
+  return
 end
  %frontier — a FIFO queue with node as the only element
- frontier = initial;
+ frontier = initial_state;
  %explored <—an empty set
  explored= [];
 %loop do
@@ -22,7 +22,7 @@ while ~isempty(frontier) && ~stop
     frontier(1,:)= []; %clearing value means node is popped.
 
     %add node.STATE to explored
-    explored = [explored; state]
+    explored = [explored; state];
     %for each action in problem .ACTIONS(node. STATE) do
     possibleActions= findActionsFromState(state);
     for j=1:length(possibleActions);
@@ -33,11 +33,9 @@ while ~isempty(frontier) && ~stop
  
         %if problem GOAL- TEST(child.STATE) then return SOLUTION( child)
         if ~ismember(child,frontier, 'rows') && ~ismember(child,explored, 'rows')
-            if child == goal_state
-                fprintf('Solution Found')
-                child
+            if child == goalState
+                result=1;
                 stop=1;
-                toc
             else  
         %frontier INSERT( child, frontier)
         frontier(size(frontier,1)+1,:)= child;
@@ -53,3 +51,4 @@ end
       if isempty(frontier)
          fprintf('failure');
       end
+end

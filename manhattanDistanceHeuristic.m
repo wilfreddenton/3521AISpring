@@ -1,9 +1,20 @@
+%This heuristic is modeling (|Xi(n)-X| +|Yi(n)-Y|)
+%We are using a coordinate system with (0,0) in the left corner
+  %with values growing down and to the right
 function [distance] = manhattanDistanceHeuristic(state)
     distance = 0;
     for i = 1:9
-        X = 0; Y = 0; Xi = 0; Yi = 0; count = 0;
-        ithTile = state(i);
+        X = 0;  %ideal x coordinate of a puzzle square
+        Y = 0;  %ideal y coordinate of a puzzle square
+        Xi = 0; %actual x coordinate of a puzzle square
+        Yi = 0; %actual y coordinate of a puzzle square
+        count = 0; %current iteration of loop
         
+        ithTile = state(i); %i is index of a square,while ithTile is 
+                             %value at that index
+        
+        %During first iteration when count is 0, we record Xi and Yi,
+        %During second iteration when count is 1, we record X and Y
         if ithTile ~= 0
             while count < 2
                 if count == 0
@@ -88,6 +99,8 @@ function [distance] = manhattanDistanceHeuristic(state)
 
                 count = count + 1;
             end
+            %We sum up each distance using the recorded values and
+            %the heuristic equation
             distance = distance + (abs(Xi - X) + abs(Yi - Y));
         end
     end

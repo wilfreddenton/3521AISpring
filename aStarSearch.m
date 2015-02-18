@@ -1,28 +1,32 @@
 function [result] = aStarSearch(initialState, goalState)
     result = false;
+    
+    %if we find goal state, no need to proceed
     if initialState == goalState
         result = true;
         return
     end
-    frontier = initialState;
-    seen = zeros(0,9);
+    frontier = initialState; %set of states generated but not explored
+    seen = zeros(0,9); %set of states that have been explored
     
     while ~isempty(frontier)
         minManhattanDistance = 0;
-        length = size(frontier, 1);
+        length = size(frontier, 1);  
         state = zeros(0,9);
         optimalStateIndex = 0;
+        
+        %find minimum manhattan distance among all states in frontier
         for i = 1:length
-            potentialState = frontier(i,:);
+            potentialState = frontier(i,:);  
             manhattanDistance = manhattanDistanceHeuristic(potentialState);
             if minManhattanDistance > manhattanDistance || i == 1
                 minManhattanDistance = manhattanDistance;
-                optimalStateIndex = i;
+                optimalStateIndex = i;   
                 state = potentialState;
             end
         end
-        frontier(optimalStateIndex,:) = [];
-        seen = [seen; state];
+        frontier(optimalStateIndex,:) = []; %remove chosen state from set 
+        seen = [seen; state]; %add chosen state to explored list
         
         possibleActions = findActionsFromState(state);
         for i = 1:numel(possibleActions)

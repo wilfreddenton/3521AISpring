@@ -1,8 +1,8 @@
-function [result] = aStarSearch(initialState, goalState)
+function [result] = aStarSearch(initialState)
     result = false;
     
     %if we find goal state, no need to proceed
-    if initialState == goalState
+    if isGoalState(initialState)
         result = true;
         return
     end
@@ -37,7 +37,7 @@ function [result] = aStarSearch(initialState, goalState)
 
             %if problem GOAL- TEST(child.STATE) then return SOLUTION( child)
             if ~ismember(child,frontier, 'rows') && ~ismember(child, seen, 'rows')
-                if child == goalState
+                if isGoalState(child)
                     result = true;
                     return
                 else  

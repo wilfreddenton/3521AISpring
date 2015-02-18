@@ -1,6 +1,6 @@
-function [result] = depthLimitedSearch(initialState, levelsFromMaxDepth, seen, goalState)
+function [result] = depthLimitedSearch(initialState, levelsFromMaxDepth, seen)
     result = false;
-    if initialState == goalState
+    if isGoalState(initialState)
         result = true;
         return
     elseif levelsFromMaxDepth == 0
@@ -14,7 +14,7 @@ function [result] = depthLimitedSearch(initialState, levelsFromMaxDepth, seen, g
                 seen = [seen; child];
                 %each recursive call is one level deeper so subtract 1
                 %from levelsFromMaxDepth
-                result = depthLimitedSearch(child, levelsFromMaxDepth - 1, seen, goalState);
+                result = depthLimitedSearch(child, levelsFromMaxDepth - 1, seen);
                 if result
                     return
                 end

@@ -1,14 +1,14 @@
-function[result]= breadthFirstSearch(initial_state, goalState)
+function[result]= breadthFirstSearch(initialState)
     %node <-- a node with STATE = problem.INITIAL-STATE, PATH-COST =0
     %goal_state= [1 2 3 4 5 6 7 8 0];
     result=false;
     %if problem.GOAL-TEST( node. STATE) then return SOLUTION(node)
-    if initial_state == goalState
+    if isGoalState(initialState)
         result=1;
         return
     end
     %frontier — a FIFO queue with node as the only element
-    frontier = initial_state;
+    frontier = initialState;
     %seen <—an empty set
     seen = [];
     %loop do
@@ -30,7 +30,7 @@ function[result]= breadthFirstSearch(initial_state, goalState)
 
             %if problem GOAL- TEST(child.STATE) then return SOLUTION( child)
             if ~ismember(child,frontier, 'rows') && ~ismember(child, seen, 'rows')
-                if child == goalState
+                if isGoalState(child)
                     result=true;
                     return
                 else  

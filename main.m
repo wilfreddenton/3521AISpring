@@ -38,7 +38,7 @@ ylabel('frequency')
 
 average = mean(BFSTimes(:, end));
 variance = var(BFSTimes(:, end));
-fprintf('\nBreadth First Search Results \n Mean: %.2f ms\n Variance: %.2f\n\n', average, variance);
+fprintf('\nBreadth First Search Results \n Mean: %.2f ms\n Variance: %.2f ms^2\n\n', average, variance);
 
 % Depth First Limited Search
 
@@ -59,7 +59,7 @@ ylabel('frequency')
 
 average = mean(DFSTimes(:, end));
 variance = var(DFSTimes(:, end));
-fprintf('\nDepth First Limited Search Results \n Mean: %.2f ms\n Variance: %.2f\n\n', average, variance);
+fprintf('\nDepth First Limited Search Results \n Mean: %.2f ms\n Variance: %.2f ms^2\n\n', average, variance);
 
 % Iterative Depth Limited Search
 
@@ -79,7 +79,7 @@ ylabel('frequency')
 
 average = mean(IDLSTimes(:, end));
 variance = var(IDLSTimes(:, end));
-fprintf('\nIterative Deepening Depth First Search Results \n Mean: %.2f ms\n Variance: %.2f\n\n', average, variance);
+fprintf('\nIterative Deepening Depth First Search Results \n Mean: %.2f ms\n Variance: %.2f ms^2\n\n', average, variance);
 
 % A* Search with Manhattan Distance Heuristic
 
@@ -99,7 +99,7 @@ ylabel('frequency')
 
 average = mean(aStarTimes(:, end));
 variance = var(aStarTimes(:, end));
-fprintf('\nA* Search Results \n Mean: %.2f ms\n Variance: %.2f\n\n', average, variance);
+fprintf('\nA* Search Results \n Mean: %.2f ms\n Variance: %.2f ms^2\n\n', average, variance);
 
 disp('Finished running initial states through all search algorithms');
 

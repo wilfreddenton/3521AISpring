@@ -4,10 +4,10 @@
 function [distance] = manhattanDistanceHeuristic(state)
     distance = 0;
     for i = 1:9
-        X = 0;  %ideal x coordinate of a puzzle square
-        Y = 0;  %ideal y coordinate of a puzzle square
-        Xi = 0; %actual x coordinate of a puzzle square
-        Yi = 0; %actual y coordinate of a puzzle square
+        X = 0;  %ideal x coordinate of a puzzle square based on value
+        Y = 0;  %ideal y coordinate of a puzzle square based on value
+        Xi = 0; %actual x coordinate of a puzzle square based on index
+        Yi = 0; %actual y coordinate of a puzzle square based on index
         count = 0; %current iteration of loop
         
         ithTile = state(i); %i is index of a square,while ithTile is 

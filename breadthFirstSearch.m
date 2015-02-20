@@ -1,3 +1,8 @@
+%This is Breadth First Search. It takes an initial state as input where
+%an initial state is an array modeling the 8-puzzle. The first three
+%numbers representing the top row, the second three representing the second
+%row..etc. It outputs a boolean result: 1 being that it reached the
+%goal-state, 0 being that it did not
 function[result]= breadthFirstSearch(initialState)
     %node <-- a node with STATE = problem.INITIAL-STATE, PATH-COST =0
     %goal_state= [1 2 3 4 5 6 7 8 0];

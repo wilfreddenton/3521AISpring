@@ -1,3 +1,6 @@
+% This is A-Star Search. Initial State is input as an array that is the 
+% root of the search. Result is a boolean indicating whether the goal-
+% state has been reached or not.
 function [result] = aStarSearch(initialState)
     result = false;
     

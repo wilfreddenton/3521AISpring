@@ -1,3 +1,6 @@
+%Depth Limited Search. Parameters are: initialState, array to begin our
+%search; levelsFromMaxDepth, an integer used in recursive calls to indicate
+%that we moved down a level; seen, set of all explored states.
 function [result] = depthLimitedSearch(initialState, levelsFromMaxDepth, seen)
     result = false;
     if isGoalState(initialState)

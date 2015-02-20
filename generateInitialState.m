@@ -1,6 +1,12 @@
+%GENERATEINITIALSTATE this function generates a random state using a 
+%   parameter called depth to hold the number of moves that we want the 
+%   final state to be away from the goal state
 function [initialState] = generateInitialState(depth)
-%GENERATEINITIALSTATE Summary of this function goes here
-%   Detailed explanation goes here
+
+%   Begin initial-state as goal-state, Generate possible actions from 
+%   initial_state at each level and choose one of the actions randomly.
+%   Continue scrambling initial_state until current depth equals user 
+%   inputted depth.
     goal_state = [1 2 3 4 5 6 7 8 0];
     explored = [];
     initialState = goal_state;
